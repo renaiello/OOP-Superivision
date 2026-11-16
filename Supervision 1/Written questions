@@ -1,0 +1,119 @@
+1.3
+
+'d' is a primative as a double is a primative type.
+'i' is a reference because arrays are not a primative type, they are a reference type.
+Similarly, 'l' is also a reference.
+'k' is an object as Double seems to be a created class and not a primative or reference type.
+'t' seems to also be an object but of the class 'Tree'.
+'f' is a primative as float is a primative type.
+'c' is an object of the class Computer.
+-----------------------
+1.9
+
+The 'void' in 'public void Test ()' means that this is a method and not a constructor. Therefore, 
+'new Test ()' doesn't run this method and so x remains 0 and the output is 0.
+-----------------------
+2.1
+
+'private' state should be used to prevent code outside of the class from editing the value. The public 
+getter and setter methods then allow other code to read and edit the value but restrictions can be added 
+to ensure valid data at all times.
+-----------------------
+2.2
+
+An advantage of this is that it is clear from just the variable name that code outside of the class should not edit the variable. 
+In Java if others try to edit the variable they find out it is private through the error message. Therefore, having a convention that
+easily allows other users to see if a variable is private or not is useful. However, it is possible that someone may not be aware of the
+notation and may edit the value when it should not be edited. 
+-----------------------
+2.3
+
+a) * See Vector2D.java
+
+b) Remove the setX and setY functions
+
+c) 
+    i) The first method is good as it allows you to edit the existing object by adding another vector. 
+       The second method returns a new Vector2D object but similarly only takes one parameter so to call it you should use 'vector1.add(vector2)'.
+       The third method also returns a new object but takes both the vectors as parameters.
+       The final method is the same as the first but the static keyword means that the vectors being passes in don't need to have been initialised earlier.
+    ii) The first method would not work for an immutable object as it can't edit the existing object so must make a new one.
+        All the other methods would work with the same differences stated in part (i)
+
+d) You can use the final keyword as this enforces immutability. (?)
+-----------------------
+2.4
+
+a) *See OOPLinkedList.java and OOPLinkedListElem.java
+
+b) *See LinkedListUML.pdf (start was changed to a protected type for a later question)
+-----------------------
+2.5
+
+The fetch and parse functions both deal with the model of the data while the print function is to do with the screen. A 
+class defining how data is modeled should not also handle how it is shown on the screen as these are two seperate functions 
+and so this does not follow SRP. There should instead be a new class that reads this Report class and contains the print method.
+-----------------------
+2.6
+
+a) *See StudentRecordA.java
+
+b) *See StudentRecordB.java
+
+c) The correct implementation of equals() is important as it allows you to check if the atributes of two objects are the same 
+instead of if they have the same address in memory as you could have two obbjects with the exact same atributes but that are 
+stored in seperate places in memory.
+The hashCode() method is also important as it allows the object to be sorted into the correct group when it is being inserted in
+a HashSet or HashMap. This is particularly useful for immutable objects as the hashCode will not change. (?)
+-----------------------
+3.1
+
+Since pointers have the memory address of the memory slot used by a variable, if they point to the wrong slot then it could 
+cause errors as whatever is in the given slot will then be used in the code and the data may be invalid and cause an error. 
+In contrast, if a reference points to null, this simply means that the reference returns a null value to the code which does 
+cause any fatal errors.
+-----------------------
+3.2
+
+* See Memory.pdf
+-----------------------
+3.4
+
+* See RefCheck.java
+-----------------------
+4.1
+
+When you use the inherits keyword to create a subclass of a class, the subclass should be a specialised type of the superclass.
+This is not true for 2D and 3D vectors, 3D vectors are not a type of 2D vector but both 2D and 3D vectors are a type of vector. 
+Creating vector3D as a subclass of vector2D would only cause issues as the methods within vector2D would also be shared and these 
+would not work correctly for a 3D vector.
+-----------------------
+4.2
+
+If no modifier is added, it is given package-private access which means the package and anything in the class can modify it 
+but nothing else.
+See folders packA and packB.
+Class B can see value from ClassA because it is in the same package while ClassAB (a subclass of ClassA) can't see the value as subclasses
+are not included in package-private access. ClassC also cannot see the value as it isn't in the same package. Therefore, only ClassA and ClassB will compile.
+-----------------------
+4.4
+
+a) 
+
+b)
+-----------------------
+4.5
+
+a) For all modifiers other than private the code will compile and Y will be able to access the field. If the field is private then Y will not compile.
+b) Y will compile if the field is public or protected but not if it is private or the default modifier.
+c) Y will compile for all modiefiers other than private.
+d) Y will compile only if the modifier is public and will not compile for all other modifiers.
+-----------------------
+4.6
+
+a.value() will be "Super" as a is declared to be of type Super and the variable is resolved when the code is compiling.
+a.printValue() will print "Sub" because the method is resolved at runtime and so the method in Sub overrides the one in Super.
+-----------------------
+4.7
+
+* See OOPSortedLinkedList.java
