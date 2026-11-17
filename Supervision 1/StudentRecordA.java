@@ -18,4 +18,6 @@ public class StudentRecordA {
         System.out.println("Age: "+age);
         System.out.println("College: "+college);
     }
+
+    // James: And then we would also really want to have quals() and hashcode() implementations
 }

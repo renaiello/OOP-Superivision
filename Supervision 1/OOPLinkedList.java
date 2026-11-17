@@ -1,6 +1,9 @@
 public class OOPLinkedList {
     protected OOPLinkedListElem start;
 
+    // James: Good. One safety issue is that you do not check that start is not null; it would be more consistent to have
+    // the constructor take an int in the same way that he add does
+
     public OOPLinkedList(OOPLinkedListElem start){
         this.start = start;
     }
